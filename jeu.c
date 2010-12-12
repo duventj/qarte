@@ -1,11 +1,10 @@
-
-
-#include "jeu.h"
-#include "paquet.h"
 #include <stdlib.h> 
 #include <assert.h>
 
-typedef unsigned int uint;
+
+#include "jeu.h"
+
+
 
 
 void creerJeu(Paquet* jeu)
@@ -30,4 +29,14 @@ void creerJeu(Paquet* jeu)
  }
 
 
-void Donner(unsigned int nb);
+void donner(Paquet* jeu, Joueur* joueur, uint n)
+{
+	uint i;
+	Carte* c;
+
+ for (i=0;i<n;i++)
+	{
+	 c=popPaquet(jeu);
+	 pushMain(joueur, c);
+	 }
+ }

@@ -1,5 +1,4 @@
-
-
+#include <time.h>
 #include "paquet.h"
 
 
@@ -47,5 +46,14 @@ void testamentPaquet(Paquet * paq)
 
 void melangerPaquet(Paquet * paq)
 {
+	uint i,pos;
+	Element* e;
 
+/* srand((int)time(0));*/
+ for (i=0;i< nbElementsPaquet(paq)/2; i++)
+	{
+	 e=popPaquet(paq);
+	 pos = (uint)rand()%42;
+	 insererElement(e, paq, pos);
+	 }
  }

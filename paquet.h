@@ -1,6 +1,8 @@
 #ifndef __PAQUET_H__
 #define __PAQUET_H__
 
+#include "utils.h"
+
 /* macro liees au module liste */
 #include "liste.h"
 
@@ -15,7 +17,6 @@ typedef Liste Paquet;
 * @fn void pushPaquet(Paquet *, Carte*);
 * @brief Ajoute une carte au dessus du paquet
 * @param[in] paquet*
-* @param[in] carte*
 */
 void melangerPaquet(Paquet *);
 

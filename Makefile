@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
 EXEC=qarte
-SRC= liste.c paquet.c carte.c jeu.c
+SRC= liste.c paquet.c carte.c jeu.c joueur.c
 OBJ= $(SRC:.c=.o)
 
 all: $(EXEC)
