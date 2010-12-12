@@ -12,7 +12,7 @@ typedef enum {
   	COULEUR,
   	FULL,
   	CARRE,
-  	QUINTE_FLUSH,
+  	QUINTE_FLUSH
 	} Hand;
 
 typedef struct {
@@ -22,11 +22,15 @@ typedef struct {
 } HandDesc;
 	
 /*
- */
 handDesc *descriptionHand(Paquet *);
+ */
 
 /*
  */
 int *compareHand(Paquet **tabHand, int *nbHand);
+
+void creerJeu(Paquet* jeu);
+void Donner(unsigned int nb);
+
 
 #endif

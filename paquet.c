@@ -43,3 +43,9 @@ void testamentPaquet(Paquet * paq)
 {
   testament(paq);
 }
+
+
+void melangerPaquet(Paquet * paq)
+{
+
+ }

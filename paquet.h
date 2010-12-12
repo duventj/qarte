@@ -17,6 +17,14 @@ typedef Liste Paquet;
 * @param[in] paquet*
 * @param[in] carte*
 */
+void melangerPaquet(Paquet *);
+
+/*!
+* @fn void pushPaquet(Paquet *, Carte*);
+* @brief Ajoute une carte au dessus du paquet
+* @param[in] paquet*
+* @param[in] carte*
+*/
 void pushPaquet(Paquet *, Carte*);
 
 

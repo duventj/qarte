@@ -6,11 +6,13 @@ typedef enum { COEUR, PIQUE, CARREAU, TREFFLE } Couleur;
 
 typedef struct {
 	Couleur couleur;
-	int valeur;
+	unsigned int valeur;
 } Carte;
 
 
 typedef Carte Element;
 
+Carte* creerCarte(Couleur, unsigned int);
+void supprimerCarte(Carte*);
 
 #endif

@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
 EXEC=qarte
-SRC= liste.c paquet.c
+SRC= liste.c paquet.c carte.c jeu.c
 OBJ= $(SRC:.c=.o)
 
 all: $(EXEC)
@@ -12,7 +12,7 @@ qarte: $(OBJ)
 
 #main.o: hello.h
 
-%.o: %.c carte.h
+%.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
