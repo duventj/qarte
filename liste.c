@@ -1,10 +1,45 @@
 #include <stdio.h> 
 #include <stdlib.h> 
+#include <assert.h> 
 #include "liste.h"
 
 void afficheinfo(Element* e)
 {
   printf("%p\n", (void*)e);
+}
+
+Cellule* enleveCellule(Liste * l, unsigned int position)
+{
+    Cellule* ret;
+    unsigned int i=0;
+
+
+    assert(position < nbElements(l));
+    
+    if (position == 0) 
+    {
+      ret = l->prem;
+      l->prem = ret->suivant;
+      l->prem->precedent = NULL;
+      ret->precedent = ret->suivant = NULL;
+     }
+    else if (position == nbElements(l) - 1) 
+    {
+      ret = l->last;
+      l->last = ret->precedent;
+      l->last->suivant = NULL;
+      ret->precedent = ret->suivant = NULL;
+     }
+     else
+     {
+       ret = l->prem;
+       while ( i<position )
+	 ret = ret->suivant;
+       ret->precedent->suivant = ret->suivant;
+       ret->suivant->precedent = ret->precedent;
+     }
+      
+      return ret;
 }
 
 void insererElement(Element* e, Liste * l, unsigned int position)

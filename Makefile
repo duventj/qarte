@@ -16,5 +16,5 @@ qarte: $(OBJ)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm *.o
+	rm -rf *.o *~
 

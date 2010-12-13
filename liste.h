@@ -102,6 +102,8 @@ void insererElement(Element* e, Liste * l, unsigned int position);
 
 
 
+Cellule* enleveCellule(Liste * l, unsigned int position);
+/* */ 
 
 #endif
 
