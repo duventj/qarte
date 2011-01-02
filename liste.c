@@ -8,6 +8,17 @@ void afficheinfo(Element* e)
   printf("%p\n", (void*)e);
 }
 
+void ajouteCellule(Liste * l, Cellule * c)
+{
+  assert(c != NULL && l != NULL);
+  
+  c->precedent = l->last ;
+  l->last->suivant = c ;
+  c->suivant = NULL ;
+  l->last = c ;
+  
+}
+
 Cellule* enleveCellule(Liste * l, unsigned int position)
 {
     Cellule* ret;
