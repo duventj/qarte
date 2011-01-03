@@ -7,7 +7,14 @@
 #include "paquet.h"
 
 
+void popMain( Joueur* j, unsigned int pos, Paquet* paq)
+{
+  assert(j != NULL && paq !=NULL);
+  assert( pos <= nbElementsPaquet(&j->main) );
+  
+  echangeCellule ( &j->main, pos, paq );
 
+}
 
 void pushMain(Joueur* j, Paquet* jeu )
 {
@@ -24,7 +31,7 @@ void initJoueur(Joueur* j)
   char tmp[100];
   printf("entrez votre nom : ");
   scanf("%s", tmp);
-  j->nom=(char*)malloc(strlen(tmp)*sizeof(char));
+  j->nom=(char*)malloc((strlen(tmp)+1)*sizeof(char));
   strcpy(j->nom, tmp);
   j->credit=0;
   initPaquet(&(j->main));
@@ -36,10 +43,10 @@ void testamentJoueur(Joueur* j)
 {
   assert( j != NULL );
   
-  testamentPaquet(&j->main);
-  free(j->nom);
  /*!
  * @todo sauvegarder le credit
  */
+  testamentPaquet(&j->main);
+  free(j->nom);
 
 }

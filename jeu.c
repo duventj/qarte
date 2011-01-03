@@ -37,7 +37,6 @@ printf("nb cartes creees : %d \n", nbElementsPaquet(jeu));
 void donner(Paquet* jeu, Joueur* joueur, uint n)
 {
 	uint i;
-printf("donner");
  for (i=0;i<n;i++)
    {
      pushMain(joueur, jeu);

@@ -73,7 +73,7 @@ printf("1ere carte : %d %d\n", paq->prem->info->couleur, paq->prem->info->valeur
  {
    assert( paq1 != NULL && paq2 != NULL);
    assert( pos <= nbElementsPaquet(paq1) );
-   printf("enleveCellule");
+
    ajouteCellule ( paq2, enleveCellule ( paq1, pos) );
  
  }

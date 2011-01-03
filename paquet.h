@@ -55,7 +55,6 @@ void initPaquet(Paquet * paq);
 * @fn unsigned int nbElementsPaquet(const Paquet * paq);
 * @brief renvoit le nombre de carte dans le paquet
 * @param[in] Paquet*
-* @param[out] uint nombre de cartes
 */
 unsigned int nbElementsPaquet(const Paquet * paq);
 

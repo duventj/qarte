@@ -12,9 +12,9 @@ typedef struct {
 
 /*!
 * @fn void popMain(Joueur* , jeu*);
-* @brief Rend une cartes dans la main du joueur j
+* @brief Rend une cartes de la main du joueur j
 */
-void popMain(Joueur* , Paquet*);
+void popMain(Joueur* , unsigned int, Paquet*);
 
 /*!
 * @fn void pushMain(Joueur* , jeu*);
@@ -26,7 +26,7 @@ void pushMain(Joueur* , Paquet*);
 
 /*!
 * @fn void initJoueur(Joueur*);
-* @param[in] Joueur* joueur a qui donner les cartes
+* @param[in] Joueur* joueur a initialiser
 */
 void initJoueur(Joueur*);
 
