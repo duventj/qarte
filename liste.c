@@ -5,15 +5,15 @@
 
 void afficheinfo(Element* e)
 {
-  printf("%p\n", (void*)e);
+  printf("* %d %d *\n", e->couleur, e->valeur);
 }
 
-void ajouteCellule(Liste * l, Cellule * c)
+void ajouteCellule(Liste * l,Cellule * c)
 {
   assert(c != NULL && l != NULL);
   
   c->precedent = l->last ;
-  l->last->suivant = c ;
+  c->precedent->suivant = c ;
   c->suivant = NULL ;
   l->last = c ;
   
@@ -21,36 +21,29 @@ void ajouteCellule(Liste * l, Cellule * c)
 
 Cellule* enleveCellule(Liste * l, unsigned int position)
 {
-    Cellule* ret;
-    unsigned int i=0;
-
-
-    assert(position < nbElements(l));
-    
-    if (position == 0) 
-    {
-      ret = l->prem;
-      l->prem = ret->suivant;
-      l->prem->precedent = NULL;
-      ret->precedent = ret->suivant = NULL;
-     }
-    else if (position == nbElements(l) - 1) 
-    {
-      ret = l->last;
-      l->last = ret->precedent;
-      l->last->suivant = NULL;
-      ret->precedent = ret->suivant = NULL;
-     }
-     else
-     {
-       ret = l->prem;
-       while ( i<position )
-	 ret = ret->suivant;
-       ret->precedent->suivant = ret->suivant;
-       ret->suivant->precedent = ret->precedent;
-     }
-      
-      return ret;
+	Cellule *c, *tmp;
+	unsigned int i=1;
+	
+ assert(position <= nbElements(l));
+ 
+ c = l->prem;
+ while (i< position ) { c = c->suivant; i++;} ;
+ 
+ tmp=c->suivant;
+ if(position <= 1) 
+ {
+   tmp->precedent=NULL;
+   l->prem = tmp;
+ }
+ else if (tmp == NULL) 
+ {
+   c->precedent->suivant = NULL;
+   l->last = c->precedent;
+ }
+ else { c->precedent->suivant=tmp;
+        tmp->precedent=c->precedent;}
+ 
+ return c;
 }
 
 void insererElement(Element* e, Liste * l, unsigned int position)
@@ -145,7 +138,7 @@ if (l->prem != NULL)
 	{ l->prem->precedent = NULL; 
 	  }
 else l->last = l->prem = NULL ;
-
+free(tmp->info);
 free(tmp);
 
  }

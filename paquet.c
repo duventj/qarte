@@ -1,5 +1,9 @@
 #include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
 #include "paquet.h"
+#include "utils.h"
 
 
 void initPaquet(Paquet * paq)
@@ -46,14 +50,30 @@ void testamentPaquet(Paquet * paq)
 
 void melangerPaquet(Paquet * paq)
 {
-	uint i,pos;
-	Element* e;
+	unsigned int i, pos, temp;
+/*	Element* e; */
+	Cellule* c;
 
-/* srand((int)time(0));*/
- for (i=0;i< nbElementsPaquet(paq)/2; i++)
+ srand((uint)time(0));
+ temp=(uint)(nbElementsPaquet(paq)/2);
+ for (i=0;i< 3*temp; i++)
 	{
-	 e=popPaquet(paq);
-	 pos = (uint)rand()%42;
-	 insererElement(e, paq, pos);
-	 }
+	 pos = (uint)rand()%temp; 
+	 c=enleveCellule ( paq, pos);
+	 ajouteCellule( paq, c);
+	}
+#ifdef DEBUG
+printf("nb cartes apres melange : %d \n", nbElementsPaquet(paq));
+affichageListeGaucheDroite(paq);
+printf("1ere carte : %d %d\n", paq->prem->info->couleur, paq->prem->info->valeur);
+#endif
+ }
+ 
+ void echangeCellule ( Paquet* paq1, unsigned int pos, Paquet* paq2 )
+ {
+   assert( paq1 != NULL && paq2 != NULL);
+   assert( pos <= nbElementsPaquet(paq1) );
+   printf("enleveCellule");
+   ajouteCellule ( paq2, enleveCellule ( paq1, pos) );
+ 
  }

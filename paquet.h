@@ -14,11 +14,17 @@ typedef Liste Paquet;
 
 
 /*!
-* @fn void pushPaquet(Paquet *, Carte*);
-* @brief Ajoute une carte au dessus du paquet
+* @fn void echangeElement ( Paquet* paq1, unsigned int pos, Paquet* paq2 );
+* @brief donne la carte a la position pos de paq1 a la fin de paq2
+*/
+void echangeCellule ( Paquet* paq1, unsigned int pos, Paquet* paq2 );
+
+/*!
+* @fn void melangerPaquet(Paquet *);
+* @brief melange un paquet
 * @param[in] paquet*
 */
-void melangerPaquet(Paquet *);
+void melangerPaquet(Paquet * paq);
 
 /*!
 * @fn void pushPaquet(Paquet *, Carte*);
@@ -61,5 +67,7 @@ void videPaquet(Paquet * paq);
  */
 void testamentPaquet(Paquet * paq);
 
+
+void initPaquet(Paquet * );
 
 #endif

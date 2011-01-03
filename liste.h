@@ -104,7 +104,7 @@ void insererElement(Element* e, Liste * l, unsigned int position);
 
 Cellule* enleveCellule(Liste * l, unsigned int position);
 /* */ 
-void ajouteCellule(Liste * l, Cellule * c);
+void ajouteCellule(Liste * l,Cellule * c);
 /* */ 
 
 #endif
