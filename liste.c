@@ -10,12 +10,18 @@ void afficheinfo(Element* e)
 
 void ajouteCellule(Liste * l,Cellule * c)
 {
-  assert(c != NULL && l != NULL);
-  
-  c->precedent = l->last ;
-  c->precedent->suivant = c ;
-  c->suivant = NULL ;
-  l->last = c ;
+	Cellule * temp ;
+
+ temp = l->last;
+ l->last = c;
+ l->last->suivant = NULL;
+
+if (temp != NULL) 
+	{ l->last->precedent = temp;
+	  l->last->precedent->suivant = l->last; }
+
+else {	l->prem = l->last ;
+	l->last->suivant=NULL; }
   
 }
 
