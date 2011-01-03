@@ -28,6 +28,9 @@ void initJoueur(Joueur* j)
   strcpy(j->nom, tmp);
   j->credit=0;
   initPaquet(&(j->main));
+#ifdef DEBUG
+printf("votre nom : %s\n", j->nom);
+#endif
 }
 void testamentJoueur(Joueur* j)
 {
