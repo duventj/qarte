@@ -22,10 +22,10 @@ int main()
  
  donner( &jeu, &joueur, 5);
 #ifdef DEBUG
-printf("nb cartes apres melange : %d \n", nbElementsPaquet(&jeu));
+printf("nb cartes apres donne 5 cartes : %d \n", nbElementsPaquet(&jeu));
 affichageListeGaucheDroite( &joueur.main );
 popMain(&joueur , 1, &jeu);
-printf("nb cartes apres melange : %d \n", nbElementsPaquet(&jeu));
+printf("nb cartes apres popmain : %d \n", nbElementsPaquet(&jeu));
 affichageListeGaucheDroite( &joueur.main );
 #endif
 
