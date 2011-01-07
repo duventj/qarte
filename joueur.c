@@ -4,8 +4,19 @@
 #include <string.h>
 
 #include "joueur.h"
+#include "jeu.h"
 #include "paquet.h"
 
+
+/*!
+* @fn void calcul_qualite_main(Joueur* );
+* @brief Rend une cartes de la main du joueur j
+*/
+void calcul_qualite_main(Joueur* j)
+{
+  j->qualite = qualiteJeu(&j->main);
+  
+}
 
 void popMain( Joueur* j, unsigned int pos, Paquet* paq)
 {
@@ -24,6 +35,15 @@ void pushMain(Joueur* j, Paquet* jeu )
   
   c=enleveCellule ( jeu, 0);
   ajouteCellule( &(j->main), c);
+}
+
+void donner(Paquet* jeu, Joueur* joueur, uint n)
+{
+	uint i;
+ for (i=0;i<n;i++)
+   {
+     pushMain(joueur, jeu);
+   }
 }
 
 void initJoueur(Joueur* j)

@@ -7,7 +7,7 @@
 #include "joueur.h"
 
 
-int main()
+int main(int argc, char ** argv)
 {
   
  Joueur joueur;
@@ -24,10 +24,14 @@ int main()
 #ifdef DEBUG
 printf("nb cartes apres donne 5 cartes : %d \n", nbElementsPaquet(&jeu));
 affichageListeGaucheDroite( &joueur.main );
-popMain(&joueur , 1, &jeu);
+/*popMain(&joueur , 1, &jeu);
 printf("nb cartes apres popmain : %d \n", nbElementsPaquet(&jeu));
-affichageListeGaucheDroite( &joueur.main );
+affichageListeGaucheDroite( &joueur.main );*/
 #endif
+
+
+ calcul_qualite_main(&joueur);
+ printf("qualite main : %d\n",joueur.qualite);
 
  testamentPaquet(&jeu);
  testamentJoueur(&joueur);

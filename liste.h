@@ -1,3 +1,10 @@
+/**
+ * \file liste.h
+ * \brief module de lif5 sur les listes chainnees
+ * \author moimeme
+ * \version 0.1
+ * \date 2010
+ */
 #ifndef _LISTE
 #define _LISTE
 
@@ -106,6 +113,7 @@ Cellule* enleveCellule(Liste * l, unsigned int position);
 /* */ 
 void ajouteCellule(Liste * l,Cellule * c);
 /* */ 
+Element* copieElement(const Liste * l, unsigned int position);
 
 #endif
 

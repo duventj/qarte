@@ -1,11 +1,18 @@
+/**
+ * \file jeu.h
+ * \brief module liees aux phases necessaires pour le jeu en general
+ * \author moimeme
+ * \version 0.1
+ * \date Janvier 2011
+ */
 #ifndef __JEU_H__
 #define __JEU_H__
-
 #include "utils.h"
-#include "joueur.h"
-#include "paquet.h"
 
-
+/**
+ * \struct PMain
+ * \brief Qualite de la main par ordre croissant
+ */
 typedef enum { 
 	CARTE_HAUTE,
   	PAIRE, 
@@ -16,28 +23,20 @@ typedef enum {
   	FULL,
   	CARRE,
   	QUINTE_FLUSH
-	} Hand;
+	} sQualite ; /* qualite de la main */
 
-typedef struct {
-	int rang, rang_b;
-	Couleur couleur;
-	Hand hand;
-} HandDesc;
-	
-/*
-handDesc *descriptionHand(Paquet *);
- */
 
-/*
-int *compareHand(Paquet **tabHand, int *nbHand);
- */
+#include "paquet.h"
+#include "joueur.h"
+
 
 /*!
-* @fn void melangerJeu(Paquet* jeu);
-* @brief Melange jeu de carte
+* @fn qualiteMain *descriptionHand(Paquet *);
+* @brief Donne la description de la mai
 * @param[in-out] paquet* jeu de carte a melanger
 */
-void melangerJeu(Paquet* jeu);
+sQualite qualiteJeu(const Paquet *);
+
 
 /*!
 * @fn void creerJeu(Paquet* jeu);
@@ -46,15 +45,6 @@ void melangerJeu(Paquet* jeu);
 */
 void creerJeu(Paquet* jeu);
 
-
-/*!
-* @fn void donner(Paquet* jeu, Joueur* joueur, unsigned int n);
-* @brief Donner n cartes 
-* @param[in] paquet* jeu de carte
-* @param[in] Joueur* joueur a qui donner les cartes
-* @param[in] uint nombre de cartes a donner
-*/
-void donner(Paquet* jeu, Joueur* joueur, uint n);
 
 
 #endif

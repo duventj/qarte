@@ -2,9 +2,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
-#include "paquet.h"
-#include "utils.h"
 
+#include "utils.h"
+#include "paquet.h"
+#include "carte.h"
+
+Carte* copieCarte(const Paquet * paq, unsigned int pos)
+{  
+  return (Carte*)copieElement(paq, pos);
+}
 
 void initPaquet(Paquet * paq)
 {
@@ -77,3 +83,4 @@ printf("1ere carte : %d %d\n", paq->prem->info->couleur, paq->prem->info->valeur
    ajouteCellule ( paq2, enleveCellule ( paq1, pos) );
  
  }
+ 

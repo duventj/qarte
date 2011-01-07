@@ -8,6 +8,20 @@ void afficheinfo(Element* e)
   printf("* %d %d *\n", e->couleur, e->valeur);
 }
 
+Element* copieElement(const Liste * l, unsigned int position)
+{
+	Cellule *c;
+	unsigned int i=1;
+	
+ assert(position <= nbElements(l));
+ 
+ c = l->prem;
+ while (i< position ) { c = c->suivant; i++;} ;
+
+ return c->info;
+
+}
+
 void ajouteCellule(Liste * l,Cellule * c)
 {
 	Cellule * temp ;

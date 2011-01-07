@@ -1,3 +1,10 @@
+/**
+ * \file carte.h
+ * \brief module de definitions des cartes
+ * \author moimeme
+ * \version 0.1
+ * \date Janvier 2011
+ */
 #ifndef __CARTE_H__
 #define __CARTE_H__
 

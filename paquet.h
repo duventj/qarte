@@ -1,20 +1,39 @@
+/**
+ * \file paquet.h
+ * \brief module de definitions des paquets de carte, utilise comme un tas
+ * \author moimeme
+ * \version 0.1
+ * \date Janvier 2011
+ */
 #ifndef __PAQUET_H__
 #define __PAQUET_H__
 
 #include "utils.h"
-
 /* macro liees au module liste */
 #include "liste.h"
 
+/**
+ * \struct Paquet
+ * \brief Un paquet est une liste doublement chainnee
+ * \brief utilise pour les mains et pour le jeu de cartes
+ */
+typedef Liste Paquet;
+
+/**
+ * \todo Voir si ya encore besoin de ces maro et les enlever
+*/
 #define deniereCartePaquet(x) x->last->info
 #define premiereCartePaquet(x) x->prem->info
 
 
-typedef Liste Paquet;
-
+/*!
+* @fn Carte* copieCarte(const Paquet * paq, unsigned int pos);
+* @brief renvoit un pointeur de carte
+*/
+Carte* copieCarte(const Paquet * paq, unsigned int pos);
 
 /*!
-* @fn void echangeElement ( Paquet* paq1, unsigned int pos, Paquet* paq2 );
+* @fn void echangeCellule ( Paquet* paq1, unsigned int pos, Paquet* paq2 );
 * @brief donne la carte a la position pos de paq1 a la fin de paq2
 */
 void echangeCellule ( Paquet* paq1, unsigned int pos, Paquet* paq2 );
@@ -68,5 +87,8 @@ void testamentPaquet(Paquet * paq);
 
 
 void initPaquet(Paquet * );
+
+
+
 
 #endif
