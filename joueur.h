@@ -9,7 +9,7 @@
 #define __JOUEUR_H__
 
 #include "paquet.h"
-#include "jeu.h"
+#include "poker.h"
 
 typedef struct {
 	char* nom;

@@ -1,12 +1,12 @@
 /**
  * \file jeu.h
- * \brief module liees aux phases necessaires pour le jeu en general
+ * \brief module liees aux regles du poker en general
  * \author moimeme
  * \version 0.1
  * \date Janvier 2011
  */
-#ifndef __JEU_H__
-#define __JEU_H__
+#ifndef __POKER_H__
+#define __POKER_H__
 #include "utils.h"
 
 /**

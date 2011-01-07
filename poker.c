@@ -3,10 +3,9 @@
 #include <assert.h>
 
 
-#include "jeu.h"
+#include "poker.h"
 #include "carte.h"
 #include "paquet.h"
-#include "joueur.h"
 
 
 /*!

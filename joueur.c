@@ -4,7 +4,6 @@
 #include <string.h>
 
 #include "joueur.h"
-#include "jeu.h"
 #include "paquet.h"
 
 

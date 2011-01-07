@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "paquet.h"
-#include "jeu.h"
+#include "poker.h"
 #include "joueur.h"
 
 
