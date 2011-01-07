@@ -1,4 +1,4 @@
-CC=gcc
+CC=g++
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
 EXEC=qarte
@@ -10,9 +10,9 @@ all: $(EXEC)
 qarte: $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-#main.o: hello.h
+#main.o: utils.h
 
-%.o: %.c
+%.o: %.c utils.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:

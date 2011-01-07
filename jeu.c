@@ -86,7 +86,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
 	  tmp++;
 	else 
 	  tmp=0;
-      if (tmp==5)
+      if (tmp>=5)
 	qualite = QUINTE_FLUSH;
       return qualite;
     }
@@ -113,6 +113,10 @@ sQualite qualiteJeu(const Paquet * main_joueur)
 
   switch(tmp) 
   {
+    case (6) : 		/* pour le hold'em */
+      qualite=FULL;
+      return qualite ;
+      break;
     case (5) : 
       qualite=FULL;
       return qualite ;
@@ -140,7 +144,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
     if(tmp1==0)
       tmp=0;
     else tmp++;
-    if(tmp==5)
+    if(tmp>=5)
       return qualite = QUINTE ;
   }
   
