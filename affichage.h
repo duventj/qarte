@@ -1,0 +1,4 @@
+
+/*
+#define QT_GUI
+*/
