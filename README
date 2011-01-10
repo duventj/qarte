@@ -1,4 +1,5 @@
-
+Pour compiler :
+	qmake && make
 
 Jeu de carte de base avec affichage graphique de la main du joueur
 A modifier pour prendre en compte plusieurs modes de jeu (en dynamique)
