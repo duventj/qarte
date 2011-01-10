@@ -7,6 +7,21 @@
 #include "paquet.h"
 #include "carte.h"
 
+int conventionCarte(const Paquet * paq, unsigned int pos)
+{  
+  Carte* c;
+  Couleur col;
+  unsigned int val;
+  int tmp;
+  
+  c=copieCarte(paq, pos);
+  col=c->couleur;
+  val=c->valeur;
+  tmp=(int)col*100+(int)val;
+  
+  return tmp;
+}
+
 Carte* copieCarte(const Paquet * paq, unsigned int pos)
 {  
   return (Carte*)copieElement(paq, pos);

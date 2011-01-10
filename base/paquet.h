@@ -11,6 +11,10 @@
 #include "utils.h"
 /* macro liees au module liste */
 #include "liste.h"
+#include "carte.h"
+
+
+
 
 /**
  * \struct Paquet
@@ -25,6 +29,12 @@ typedef Liste Paquet;
 #define deniereCartePaquet(x) x->last->info
 #define premiereCartePaquet(x) x->prem->info
 
+
+/*!
+* @fn Carte* copieCarte(const Paquet * paq, unsigned int pos);
+* @brief renvoit un pointeur de carte
+*/
+int conventionCarte(const Paquet * paq, unsigned int pos);
 
 /*!
 * @fn Carte* copieCarte(const Paquet * paq, unsigned int pos);

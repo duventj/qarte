@@ -18,6 +18,7 @@ typedef struct {
 	sQualite  qualite;
 } Joueur;
 
+#define mainJoueur(j) &j->main
 
 /*!
 * @fn compareJoueurs(Joueur *, Joueur *);

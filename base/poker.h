@@ -7,8 +7,10 @@
  */
 #ifndef __POKER_H__
 #define __POKER_H__
-#include "utils.h"
 
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
 /**
  * \struct PMain
  * \brief Qualite de la main par ordre croissant
@@ -45,6 +47,9 @@ sQualite qualiteJeu(const Paquet *);
 */
 void creerJeu(Paquet* jeu);
 
+ #ifdef __cplusplus
+ }
+ #endif
 
 
 #endif

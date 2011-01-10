@@ -8,8 +8,6 @@
 #include "paquet.h"
 
 #define DEBUG
-
-
 /*!
 * @fn SJeu* descriptionHand(Paquet *);
 * @brief Donne la description de la mai
@@ -18,7 +16,7 @@
 sQualite qualiteJeu(const Paquet * main_joueur)
 {
   uint i,j,tmp,tmp1;
-  uint map[4][13],color_identique[4], valeur_identique[13] ;
+  uint map[4][14],color_identique[4], valeur_identique[13] ;
   Carte* c;
   Couleur col;
   sQualite qualite; 
@@ -27,7 +25,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
   for (i=0;i<4;i++)
   {
     color_identique[i]=0;
-    for (j=0;j<13;j++)
+    for (j=0;j<14;j++)
     {
       valeur_identique[j]=0;
       map[i][j]=0;
@@ -44,6 +42,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
     c=copieCarte(main_joueur, i);
     col=c->couleur;
     tmp=c->valeur;
+    if (tmp == 1) map[col][13] ++ ; /* si as, les deux bouts sont a 1*/
     map[col][tmp-1] ++;
     printf ("couleur %d  - valeur %d , %d\n",col,tmp,map[col][tmp-1]);  
   }
@@ -53,7 +52,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
   for (i=0;i<4;i++)
   {
     printf("%d :",i);
-    for (j=0;j<13;j++)
+    for (j=0;j<14;j++)
       printf(" %d -",map[i][j]);
     printf("\n");
   }
@@ -61,7 +60,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
 
 /*trie des donnees*/
   for (i=0;i<4;i++)
-    for (j=0; j<13 ; j++)
+    for (j=0; j<14 ; j++)
     {
       color_identique[i] += map[i][j];
       valeur_identique[j] += map[i][j];
@@ -70,7 +69,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
  printf("\n");
  for (i=0;i<4;i++) printf("%d\n",color_identique[i]);
  printf("   ");
- for (i=0;i<13;i++) printf(" %d -",valeur_identique[i]);
+ for (i=0;i<14;i++) printf(" %d -",valeur_identique[i]);
  printf("\n");
 #endif
 /* Calcul de la valeur de la main  */
@@ -82,7 +81,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
       qualite = COULEUR ;
       /* verif quinte flush  */
       tmp=0;
-      for(j=0;j<13;j++)
+      for(j=0;j<14;j++)
 	if(map[i][j] !=0)
 	  tmp++;
 	else 
@@ -173,9 +172,7 @@ void creerJeu(Paquet* jeu)
 	 for ( i = 1 ; i < 14; i++)
 	   pushPaquet(jeu, creerCarte(col, i));
 	 }
-#ifdef DEBUG
 printf("nb cartes creees : %d \n", nbElementsPaquet(jeu));
-#endif
  }
 
 
