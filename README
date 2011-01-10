@@ -1,5 +1,9 @@
 Pour compiler :
 	qmake && make
+Lancer avec :
+	./qarte
+
+
 
 Jeu de carte de base avec affichage graphique de la main du joueur
 A modifier pour prendre en compte plusieurs modes de jeu (en dynamique)
@@ -12,4 +16,3 @@ Encore un probleme pour vider la main dans enleveCellule de liste.c
 
 Dans poker.c, mettre un peut plus haut la quinte pour qu'elle soit calculée avant
  (sinon on aura une combinaison moins forte sear calculée avant et retournee)
-et le tableau doit avoir 1 des deux cotes qd il y a un as..

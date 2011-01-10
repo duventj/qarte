@@ -18,7 +18,7 @@
 sQualite qualiteJeu(const Paquet * main_joueur)
 {
   uint i,j,tmp,tmp1;
-  uint map[4][13],color_identique[4], valeur_identique[13] ;
+  uint map[4][14],color_identique[4], valeur_identique[14] ;
   Carte* c;
   Couleur col;
   sQualite qualite; 
@@ -27,7 +27,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
   for (i=0;i<4;i++)
   {
     color_identique[i]=0;
-    for (j=0;j<13;j++)
+    for (j=0;j<14;j++)
     {
       valeur_identique[j]=0;
       map[i][j]=0;
@@ -53,15 +53,17 @@ sQualite qualiteJeu(const Paquet * main_joueur)
   for (i=0;i<4;i++)
   {
     printf("%d :",i);
-    for (j=0;j<13;j++)
+    for (j=0;j<14;j++)
       printf(" %d -",map[i][j]);
     printf("\n");
   }
 #endif
 
+/*! \todo on peut surement tout faire en un passage
+*/
 /*trie des donnees*/
   for (i=0;i<4;i++)
-    for (j=0; j<13 ; j++)
+    for (j=0; j<14 ; j++)
     {
       color_identique[i] += map[i][j];
       valeur_identique[j] += map[i][j];
@@ -70,7 +72,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
  printf("\n");
  for (i=0;i<4;i++) printf("%d\n",color_identique[i]);
  printf("   ");
- for (i=0;i<13;i++) printf(" %d -",valeur_identique[i]);
+ for (i=0;i<14;i++) printf(" %d -",valeur_identique[i]);
  printf("\n");
 #endif
 /* Calcul de la valeur de la main  */
@@ -82,7 +84,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
       qualite = COULEUR ;
       /* verif quinte flush  */
       tmp=0;
-      for(j=0;j<13;j++)
+      for(j=0;j<14;j++)
 	if(map[i][j] !=0)
 	  tmp++;
 	else 
@@ -94,7 +96,7 @@ sQualite qualiteJeu(const Paquet * main_joueur)
   }
 /* Full brelan paire double paire  */
   tmp=0;
-  for(i=0;i<13;i++)
+  for(i=0;i<14;i++)
   {
     if (valeur_identique[i] == 4)
     {
@@ -136,8 +138,10 @@ sQualite qualiteJeu(const Paquet * main_joueur)
       break;
   }
 /* quinte (pas de paire -> on recupere l'ago de la quinte flush)*/
+/*! \todo à separer pour mettre phus haut (prioritaire par rapport au return des mains plus faibles
+*/
   tmp=0;
-  for(j=0;j<13;j++)
+  for(j=0;j<14;j++)
   {
     tmp1=0;
     for(i=0;i<4;i++)
