@@ -48,8 +48,18 @@ Cellule* enleveCellule(Liste * l, unsigned int position)
  
  c = l->prem;
  while (i< position ) { c = c->suivant; i++;} ;
- 
- tmp=c->suivant;
+ /*! \todo revoir pcq les changements effectués posent encore probleme (a revoir en entier peut etre)
+  *         mais voir aussi widget::switch_card()
+  */
+ if (c->suivant==NULL)
+ {
+   l->prem=NULL;
+   l->last=NULL;
+   c->precedent=c->suivant = NULL;
+   return c;
+ }
+ if (c!=NULL)
+   tmp=c->suivant;
  if(position <= 1) 
  {
    tmp->precedent=NULL;
@@ -63,6 +73,7 @@ Cellule* enleveCellule(Liste * l, unsigned int position)
  else { c->precedent->suivant=tmp;
         tmp->precedent=c->precedent;}
  
+ c->precedent=c->suivant = NULL;
  return c;
 }
 

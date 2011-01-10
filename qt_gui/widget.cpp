@@ -145,8 +145,6 @@ void Widget::createCards( void ) {
       tmp->setData( OLDPOS , i );
    }
 
-//melanger le jeu
-
 }
 
 void Widget::resizeEvent ( QResizeEvent * /*event*/ ) {
@@ -167,8 +165,8 @@ void Widget::keyPressEvent ( QKeyEvent * event ) {
 
 
 // slots
-void Widget::change_cards(void) {
-
+void Widget::change_cards(void) 
+{
 	int c=0;
 	unsigned int i;
 
@@ -229,11 +227,15 @@ void Widget::endOfGame( void )
   clean_cards();
   calcul_qualite_main(&joueur);
   qDebug () << "Qualite main :" << joueur.qualite ;
-  while(nbElementsPaquet(&joueur.main) > 1)
+  while( nbElementsPaquet(&joueur.main) > 0 )
   {
     popMain(&joueur,0, &jeu);
   }
+//  echangeCellule ( &joueur.main,0, &jeu );
+//  pushPaquet(&jeu, popPaquet(&joueur.main));
   qDebug () << "endOfGame - nbelements:" << nbElementsPaquet(&joueur.main) ;
+/*  while (!chg.isEmpty()) 
+	 { chg.removeLast();}*/
   restartGame();
 }
 
@@ -243,13 +245,15 @@ void Widget::restartGame( void ) {
    recup_cards();
 }
 
-void Widget::createHelp( void ) {
+void Widget::createHelp( void ) 
+{
    QGraphicsTextItem *helpText = scene->addText("Choisir les cartes a changer");
-   helpText->moveBy(150,50);
+   helpText->moveBy( 150, 50 );
 }
+
 /*! \fn Widget::switch_cards( int out, int pos )
  *  \param [in] out carte a enlever
-*   \param [in] pos position ou mettre la nouvelle
+ *  \param [in] pos position ou mettre la nouvelle
  *  \brief -1 pour desactiver un des deux 
  */
 void Widget::switch_cards( int out, int pos ) //position dans la main
@@ -257,7 +261,7 @@ void Widget::switch_cards( int out, int pos ) //position dans la main
 	Card *tmp=NULL;
 	int x;
 
-//enleve la carte
+//enleve la carte (pas si -1)
 if (out!=-1)
    {tmp = findCardOnPos( out );
     tmp->moveAnimated( -500, 500 );}
@@ -266,7 +270,7 @@ qDebug()<<"switch : carte enlevee :" << conventionCarte(&joueur.main, pos+1);
 */
 if (pos!=-1)
    {
-//met la nouvelle
+//met la nouvelle (pas si -1)
     tmp = findCardOnPos( conventionCarte(&joueur.main, pos+1) );
     x= pos * (tmp->boundingRect().width() + SPACE);
     tmp->moveAnimated( x, POS_Y );
